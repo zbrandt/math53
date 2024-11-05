@@ -1,0 +1,180 @@
+\documentclass[]{book}
+
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\begin{center}
+{\Large Math 53 Practice Final}\\
+\textbf{Zachary Brandt}\\
+\today
+\end{center}
+
+\vspace{0.2 cm}
+
+
+\subsection*{Easy Exercises}
+
+\begin{enumerate}
+\item\label{norms}
+Find parametric equations for the tangent line to the curve with the given parametric equations at the specificed point. 
+	$$x=e^{-t}cos(t),\;y=e^{-t}sin(t),\;z=e^{t};\:\:(1,0,1)$$
+\begin{soln}
+    The vector equation of the paramaterization is $\mathbf{r}(t)=\:<e^{-t}cos(t),\;e^{-t}sin(t),\;e^{t}>$, so 
+    $$\mathbf{r}'(t)=\:<-e^{-t}(cos(t) + sin(t)),\;e^{-t}(cos(t)-sin(t)),\;-e^{-t}>$$
+    The parameter value corresponding to the point (1,0,1) is $t=0$, so the tangent vector there is \newline$\mathbf{r}'(0)=<-1,1,-1>$. Therefore the tangent line is parallel to this vector and the parametric equations are $$x=1-t,\:y=t,\:z=1-t$$
+\end{soln}
+
+\item	Use Green's Theorem to find the work done by the force $\mathbf{F}(x,y)=x(x+y)\:\mathbf{i}+xy\:\mathbf{j}$ in moving a particle from the origin to the x-axis to (1,0), then along the line segment to (0,1), and then back to the origin along the y-axis. 
+\begin{soln}
+	$$W = \int_{C}^{} \mathbf{F}\cdot d\mathbf{r}=\int_{C}^{} x(x+y)\,dx+xy\,dy=\iint_{D}(y^{2}-x)\,dA$$
+    D is the triangle bounded by the curve C described above,
+    $$W = \int_{0}^{1}\int_{0}^{1-x}(y^{2}-x)\,dydx=-\frac{1}{12}$$
+\end{soln}
+
+\item	Use a double integral to find one loop of the rose $r=cos(3\theta)$
+\begin{soln}
+    $$\iint_{D}\,dA=\int_{-\pi/6}^{\pi/6}\int_{0}^{3cos(\theta)}r\,drd\theta=\int_{-\pi/6}^{\pi/6}\frac{1}{2}cos^{2}3\theta \,d\theta=\frac{\pi}{12}$$
+\end{soln}
+
+\item	Find two unit vectors orthogonal to both $<3,2,1>$ and $<-1,1,0>$.
+\begin{soln}
+    Compute the cross product (will be orthogonal to both)
+    $$<3,2,1> \times <-1,1,0> = \begin{bmatrix}
+        \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+        3 & 2 & 1 \\
+        -1 & 1 & 0 \\
+    \end{bmatrix} = -\,\mathbf{i}-\,\mathbf{j}+5\,\mathbf{k}$$ \newline
+    So the two unit vectors are $$\pm \frac{<-1, -1, 5>}{3\sqrt{3}}$$
+\end{soln}
+\end{enumerate}
+
+\newpage
+\subsection*{Medium Exercises}
+\begin{enumerate}
+
+\item	Find the partial derivatives. $f(x,y)=x^4y^2-x^3y;\;f_{xxx},\;f_{xyx}$ 
+\begin{soln}
+    $$f_x=4x^3y^2-3x^2y,\;f_{xx}=12x^2y^2-6xy,\;f_{xxx}=24xy^2-6y$$
+    $$f_x=4x^3y^2-3x^2y,\;f_{xy}=8x^3y-3x^2,\;f_{xyx}=24x^2y-6x$$
+\end{soln}
+
+\item   The plane $x+y+2z=2$ intersects the paraboloid $z=x^2+y^2$ in an ellipse. Find the points on this ellipse that are nearest and farthest from the origin. 
+\begin{soln}
+    Maximize $f(x,y,z)=x^2+y^2+z^2$ subject to constraints $g(x,y,z)=x+y+2z=2$ and $h(x,y,z)=x^2+y^2-z=0$. So our system of equations comes from the two constraints and
+    $$\nabla f = \lambda \nabla g + \mu \nabla h$$
+    $$\begin{bmatrix} 2x \\ 2y \\ 2z \end{bmatrix} = \lambda \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix} + \mu \begin{bmatrix} 2x \\ 2y \\ -1 \end{bmatrix}$$
+    Solving this mess should produce two points $(\frac{1}{2},\frac{1}{2},\frac{1}{2})$ and $(-1,-1,2)$ which we should check: $f(\frac{1}{2},\frac{1}{2},\frac{1}{2})=\frac{3}{4}$ and $f(-1,-1,2)=6$, closest and furthest points respectively.
+\end{soln}
+
+\item   Evaluate the integral with the transformation. $\iint_{R}x^2\,dA$, where $R$ is the region bounded by the ellipse $9x^2+4y^2=36;\;\;x=2u,\;y=3v$
+\begin{soln}
+    First find the expansion factor that relates $dA$ to $dudv$
+    $$\frac{\partial (x,y)}{\partial (u,v)}=\begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}=6$$
+    the ellipse in xy is the image of $u^2+v^2 = 1$, therefore
+    $$\iint_{R}x^2\,dA=\iint (4u^2)(6)\,dudv=\int_{0}^{2\pi}\int_{0}^{1}(4r^2cos^2\theta)(6)r\,drd\theta=6\pi$$
+\end{soln}
+\end{enumerate}
+
+\newpage
+\subsection*{Hard Exercises}
+\begin{enumerate}
+    \item   Prove the identity. $\iint_S \mathbf{a} \cdot \mathbf{n}\,dS=0,\;$ where $\mathbf{a}$ is a constant vector
+    \begin{soln}
+        If $\mathbf{a}$ is a constant vector, i.e. none of its components contain any variables, its divergence should be zero: $\nabla \cdot \mathbf{a}=0$. Then using Divergence Theorem,
+        $$\iint_S \mathbf{a} \cdot \mathbf{n}\,dS=\iiint_E \nabla \cdot \mathbf{a}\,dV=0$$
+    \end{soln}
+    
+    \item   If a curve has the property that the position vector $\mathbf{r}(t)$ is always perpendicular to the tangent vector $\mathbf{r}'(t)$, show that the curve lies on a sphere with center the origin.
+    \begin{soln}
+        If the position vector is always perpendicular to the tangent vector, we know from the dot product that
+        $$\mathbf{r}(t) \cdot \mathbf{r}'(t)=0$$
+        Rearranging and multiplying both sides of the equation by 2 produces
+        $$0=2\mathbf{r}(t) \cdot \mathbf{r}'(t)$$
+        With a little bit of thinking and creativity this can be expressed as
+        $$0=\frac{d}{dt}[(\mathbf{r}(t) \cdot \mathbf{r}(t)]=\frac{d}{dt}[\mathbf{r}(t)]^2$$
+        A vector squared is a scalar. Therefore, we know $\mathbf{r}(t)$ to be a constant and lies on a sphere.
+    \end{soln}
+
+    \item   Seawater has a density of $1025\;kg/m^3$ and flows in a velocity field of $\mathbf{v}=y\,\mathbf{i}+x\,\mathbf{j}$, where $x$, $y$, and $z$ are measured in meters and the components of $\mathbf{v}$ in meters per second. Find the rate of flow outward through the hemisphere $x^2+y^2+z^2=9,\;z \geq 0$
+    \begin{soln}
+        If we are trying to find the rate of flow (the flux) through the hemisphere we need an answer in kilograms per second. If we integrate the products of density, velocity, and infinitesimal area we get 
+        $$\iint_S \rho \mathbf{v} \cdot d\mathbf{S}$$
+        To solve this we need to find a parametric representation of the hemisphere and find the cross product of its partial derivatives. 
+        $$\mathbf{r}(\phi, \theta)=<3sin\phi cos\theta,\,3sin\phi sin\theta,\, 3cos\phi>$$
+        $$\mathbf{r}_\phi=<3cos\phi cos\theta,\,3cos\phi cos\theta,\, -3sin\phi>$$
+        $$\mathbf{r}_\theta=<-3sin\phi sin\theta,\,3sin\phi cos\phi,\,0>$$
+        $$\mathbf{r}_\phi \times \mathbf{r}_\theta=<9sin^2\phi cos\theta,\,9sin^2\phi sin\theta,\, 9sin\phi cos\phi>$$
+        Using all this we can now solve for flux
+        $$\iint_S \rho \mathbf{v} \cdot d\mathbf{S}=\rho \int_{0}^{\pi / 2}\int_{0}^{2\pi}\mathbf{v}(\mathbf{r}(\phi, \theta)) \cdot (\mathbf{r}_\phi \times \mathbf{r}_\theta)\,d\theta d\phi = 0\, \frac{kg}{s}$$
+    \end{soln}
+    
+\end{enumerate}
+\end{document}
